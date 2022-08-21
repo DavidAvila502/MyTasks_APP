@@ -8,7 +8,7 @@ import {
   StyleSheet,
   StatusBar,
 } from "react-native";
-const WelcomeScreen = () => {
+const WelcomeScreen = (props) => {
   //Cargar fuentes
   const [fontsLoaded] = useFonts({
     "Roboto-Bold": require("../../../assets/Roboto-Bold.ttf"),
@@ -28,10 +28,12 @@ const WelcomeScreen = () => {
         ¡Organiza tus tareas y ahorra más tiempo!
       </Text>
 
-      <TouchableOpacity style={styles.boton}>
+      <TouchableOpacity
+        style={styles.boton}
+        onPress={() => props.navigation.navigate("Login")}
+      >
         <Text style={styles.textBoton}>Iniciar</Text>
       </TouchableOpacity>
-      <StatusBar style="auto" />
     </View>
   );
 };
