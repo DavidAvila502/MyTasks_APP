@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Welcome from "../../Images/Drawings/welcome.svg";
 import { useFonts } from "expo-font";
-
 import {
   View,
   Text,
@@ -32,6 +31,7 @@ const WelcomeScreen = () => {
       <TouchableOpacity style={styles.boton}>
         <Text style={styles.textBoton}>Iniciar</Text>
       </TouchableOpacity>
+      <StatusBar style="auto" />
     </View>
   );
 };
