@@ -1,5 +1,6 @@
 import React from "react";
 import Welcome from "../../Images/Drawings/welcome.svg";
+import Custombutton from "../../Components/Custombutton/CustomButton";
 import { useFonts } from "expo-font";
 import {
   View,
@@ -27,13 +28,10 @@ const WelcomeScreen = (props) => {
       <Text style={styles.frase}>
         ¡Organiza tus tareas y ahorra más tiempo!
       </Text>
-
-      <TouchableOpacity
-        style={styles.boton}
-        onPress={() => props.navigation.navigate("Login")}
-      >
-        <Text style={styles.textBoton}>Iniciar</Text>
-      </TouchableOpacity>
+      <Custombutton
+        text={"Iniciar"}
+        func={() => props.navigation.navigate("Login")}
+      />
     </View>
   );
 };
@@ -59,23 +57,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     width: 262,
     textAlign: "center",
-  },
-  textBoton: {
-    fontFamily: "Roboto-Regular",
-    fontSize: 24,
-    color: "#fff",
-  },
-
-  boton: {
-    bottom: 0,
-    position: "absolute",
-    marginBottom: 87,
-    width: 176,
-    height: 55,
-    backgroundColor: "#FF5858",
-    borderRadius: 100,
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
 

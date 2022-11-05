@@ -18,6 +18,7 @@ const LoginScreen = () => {
       <SesionImage height={300} />
       <Text style={styles.titulo}>Inicia sesión</Text>
       <Text style={styles.subtitulo}>¡Soló tomará un segundo!</Text>
+      <View style={styles.socialBox}></View>
     </View>
   );
 };
@@ -36,6 +37,13 @@ const styles = StyleSheet.create({
     fontFamily: "Hind-Regular",
     fontSize: 20,
     marginTop: 24,
+  },
+  socialBox: {
+    marginTop: 40,
+    width: 240,
+    height: 67,
+    backgroundColor: "yellow",
+    borderBottomWidth: 2,
   },
 });
 export default LoginScreen;
