@@ -1,8 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import { useFonts } from "expo-font";
 import SesionImage from "../../Images/Drawings/sesion.svg";
-const LoginScreen = () => {
+import Facebook from "../../Images/Social/Facebook.svg";
+import Google from "../../Images/Social/Google.svg";
+
+import Custombutton from "../../Components/Custombutton/CustomButton";
+const LoginScreen = (props) => {
   //Cargar fuentes
   const [fontsLoaded] = useFonts({
     "Roboto-Bold": require("../../../assets/Roboto-Bold.ttf"),
@@ -18,7 +29,18 @@ const LoginScreen = () => {
       <SesionImage height={300} />
       <Text style={styles.titulo}>Inicia sesión</Text>
       <Text style={styles.subtitulo}>¡Soló tomará un segundo!</Text>
-      <View style={styles.socialBox}></View>
+      <View style={styles.socialBox}>
+        <TouchableOpacity onPress={() => Alert.alert("Presiono Facebook")}>
+          <Facebook width={44} height={44} style={styles.mr} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => Alert.alert("Presiono Goole")}>
+          <Google width={44} height={44} />
+        </TouchableOpacity>
+      </View>
+      <Custombutton
+        text={"Más tarde"}
+        func={() => props.navigation.navigate("Home")}
+      />
     </View>
   );
 };
@@ -39,11 +61,18 @@ const styles = StyleSheet.create({
     marginTop: 24,
   },
   socialBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     marginTop: 40,
     width: 240,
     height: 67,
-    backgroundColor: "yellow",
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
+    borderColor: "#979797",
+    flexDirection: "row",
+  },
+  mr: {
+    marginRight: 36,
   },
 });
 export default LoginScreen;
