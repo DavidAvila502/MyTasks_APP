@@ -2,6 +2,7 @@ import React from "react";
 import Welcome from "../../Images/Drawings/welcome.svg";
 import Custombutton from "../../Components/Custombutton/CustomButton";
 import { useFonts } from "expo-font";
+import { useNavigation } from "@react-navigation/native";
 import {
   View,
   Text,
@@ -9,7 +10,9 @@ import {
   StyleSheet,
   StatusBar,
 } from "react-native";
-const WelcomeScreen = (props) => {
+const WelcomeScreen = () => {
+  //Cargamos objeto de navegacion
+  const navigation = useNavigation();
   //Cargar fuentes
   const [fontsLoaded] = useFonts({
     "Roboto-Bold": require("../../../assets/Roboto-Bold.ttf"),
@@ -30,7 +33,7 @@ const WelcomeScreen = (props) => {
       </Text>
       <Custombutton
         text={"Iniciar"}
-        func={() => props.navigation.navigate("Login")}
+        func={() => navigation.navigate("Login")}
       />
     </View>
   );

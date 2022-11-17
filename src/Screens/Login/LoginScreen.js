@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   View,
   Text,
@@ -13,7 +14,11 @@ import Facebook from "../../Images/Social/Facebook.svg";
 import Google from "../../Images/Social/Google.svg";
 
 import Custombutton from "../../Components/Custombutton/CustomButton";
-const LoginScreen = (props) => {
+const LoginScreen = () => {
+  //Cargamos objeto de navegacion
+
+  const navigation = useNavigation();
+
   //Cargar fuentes
   const [fontsLoaded] = useFonts({
     "Roboto-Bold": require("../../../assets/Roboto-Bold.ttf"),
@@ -39,7 +44,7 @@ const LoginScreen = (props) => {
       </View>
       <Custombutton
         text={"Más tarde"}
-        func={() => props.navigation.navigate("Home")}
+        func={() => navigation.navigate("Home")}
       />
     </View>
   );
