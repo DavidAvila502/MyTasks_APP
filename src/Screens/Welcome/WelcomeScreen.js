@@ -3,13 +3,7 @@ import Welcome from "../../Images/Drawings/welcome.svg";
 import Custombutton from "../../Components/Custombutton/CustomButton";
 import { useFonts } from "expo-font";
 import { useNavigation } from "@react-navigation/native";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  StatusBar,
-} from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 const WelcomeScreen = () => {
   //Cargamos objeto de navegacion
   const navigation = useNavigation();
