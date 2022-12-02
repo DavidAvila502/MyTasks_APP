@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
   View,
@@ -12,12 +12,31 @@ import { useFonts } from "expo-font";
 import SesionImage from "../../Images/Drawings/sesion.svg";
 import Facebook from "../../Images/Social/Facebook.svg";
 import Google from "../../Images/Social/Google.svg";
-
+// importaciones autenticacion
+import * as googl from "expo-auth-session/providers/google";
+import * as WebBrowser from "expo-web-browser";
+// Componentes personalizados
 import Custombutton from "../../Components/Custombutton/CustomButton";
+// Servicio de autetinticacion navegador
+WebBrowser.maybeCompleteAuthSession();
+
 const LoginScreen = () => {
   //Cargamos objeto de navegacion
-
   const navigation = useNavigation();
+
+  // Hook de respuesta de autenticacion
+  const [request, response, promptAsync] = googl.useAuthRequest({
+    expoClientId:
+      "990003487465-uf0c2i1v82vko2e3sp7ks0vjfa1j9s05.apps.googleusercontent.com",
+  });
+
+  useEffect(() => {
+    if (response?.type === "success") {
+      const { authentication } = response;
+      console.log(authentication);
+      navigation.navigate("Home");
+    }
+  }, [response]);
 
   //Cargar fuentes
   const [fontsLoaded] = useFonts({
@@ -38,7 +57,7 @@ const LoginScreen = () => {
         <TouchableOpacity onPress={() => Alert.alert("Presiono Facebook")}>
           <Facebook width={44} height={44} style={styles.mr} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => Alert.alert("Presiono Goole")}>
+        <TouchableOpacity onPress={() => promptAsync()}>
           <Google width={44} height={44} />
         </TouchableOpacity>
       </View>

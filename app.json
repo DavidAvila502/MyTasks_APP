@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MyTaskAPP_00D",
-    "slug": "MyTaskAPP_00D",
+    "slug": "mytasksapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6988c806-c8cd-417b-8fe9-5266dbc4cc89"
+      }
+    },
+    "owner": "codejd",
+    "scheme":"com.MyTaskAPP_00D"
+  
   }
+  
+  
 }
